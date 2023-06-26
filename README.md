@@ -17,7 +17,7 @@ To run the code, you need to have the following dependencies installed:
 1. Clone this repository to your local machine.
 2. Ensure that the required dependencies are installed by running `pip install -r requirements.txt`.
 3. Update the file paths in the code to specify the directory where the images are stored (`directory`) and the directory to store similar images (`similar_img_dir`).
-4. Run the script by executing `python change_detection.py`.
+4. Run the script by executing `main.py`.
 
 ## Configuration
 
@@ -33,7 +33,7 @@ The code provides a configuration class (`Config`) where you can customize vario
 
 Start
 |
-|-- Compare similarity score with the pre-assigned threshold
+|-- Compare the similarity score with the pre-assigned threshold
 |   |
 |   |-- If similarity score > threshold
 |   |   |
@@ -46,7 +46,19 @@ Start
 |   |   |-- Assign the subsequent image in the list to the next_image variable
 |
 End
+## Key takeaways from the provided code:
 
+1) The code provided by Kopernikus is not the only method to compare similarities between two images. There are other methods available, such as calculating Mean Squared Error (MSE) or using advanced computer vision 
+   techniques. It's important to explore different approaches and select the most appropriate method based on the specific requirements and characteristics of the dataset.
+
+2) The similarity threshold plays a crucial role in determining whether images are considered similar or not. In the given code, a fixed threshold value is used. However, it may be more effective to pre-sort the data into 
+   separate folders for each camera and process them individually with different threshold values. This approach allows for more flexibility and customization based on the characteristics of each camera's dataset.
+
+3) Image resizing can significantly impact the processing speed. While resizing images to smaller dimensions can improve speed, it should be done carefully to avoid losing essential information. Balancing the trade-off 
+   between speed and information loss is crucial. Experimenting with different image sizes and evaluating the impact on accuracy is recommended.
+
+4) Overall, the provided code is a good starting point for the challenge. However, further in-depth evaluation of the datasets is necessary to develop an efficient and accurate method. Exploring additional techniques, 
+   fine-tuning parameters, and testing with diverse datasets can lead to improved results.
 ## Output
 
 The code compares consecutive frames and identifies changes based on the similarity threshold. If the similarity score is greater than the threshold, the image in the next_image variable is moved to the similar images directory, and the next image in the list is assigned to the next_image variable. Otherwise, the image in the next_image variable is assigned to the prev_image variable, and the subsequent image is assigned to the next_image variable.
